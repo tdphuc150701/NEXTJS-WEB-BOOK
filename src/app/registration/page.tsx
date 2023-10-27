@@ -25,7 +25,7 @@ interface IProps {
 
 const RegistrationForm = (props: IProps) => {
     const [passwordShown, setPasswordShown] = useState(false);
-    const [userName, setuserName] = useState('');
+    const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -36,7 +36,7 @@ const RegistrationForm = (props: IProps) => {
     const dispatch = useDispatch()
     const fetcher = (url: string) => fetch(url).then((res) => res.json());
     const { data, error, isLoading } = useSWR(
-        "http://localhost:8000/users",
+        "https://vuquanghuydev.pythonanywhere.com/api/user/user/",
         fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
@@ -49,7 +49,7 @@ const RegistrationForm = (props: IProps) => {
     const users = data
     const handleuserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const updateduserName = event.target.value;
-        setuserName(updateduserName);
+        setUsername(updateduserName);
     };
 
     const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +64,7 @@ const RegistrationForm = (props: IProps) => {
         setPassword(event.target.value);
     };
     const handleuserNameBlur = (userName: string) => {
-        const user = users.find((user: any) => user.userName === userName)
+        const user = users.find((user: any) => user.username === userName)
         if (userName.trim() === '') {
             setuserNameError("Vui lòng nhập thông tin");
             return false;
@@ -119,7 +119,8 @@ const RegistrationForm = (props: IProps) => {
             return false;
 
 
-        } else {
+        }
+        else {
             setEmailError('');
             return true;
 
@@ -128,7 +129,7 @@ const RegistrationForm = (props: IProps) => {
 
     const handlePasswordBlur = (password: string) => {
 
-        if (userName.trim() === '') {
+        if (username.trim() === '') {
             setPasswordlError("Vui lòng nhập thông tin");
             return false;
         } else if (password.length < 5) {
@@ -143,26 +144,30 @@ const RegistrationForm = (props: IProps) => {
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         // Thực hiện xử lý đăng ký ở đây, ví dụ kiểm tra thông tin và tạo tài khoản người dùng mới.
-        if (!handleuserNameBlur(userName) || !handlePhoneBlur(phone) || !handleEmailBlur(email) || !handlePasswordBlur(password)) {
+        if (!handleuserNameBlur(username)
+            // || !handlePhoneBlur(phone)
+            || !handleEmailBlur(email) || !handlePasswordBlur(password)) {
             toast.error('Regis failed')
             return false;
 
         }
         else {
-            fetch('http://localhost:8000/users', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userName, phone, email, password }),
-            })
+            fetch('http://localhost:8000/users',
+                // fetch('https://vuquanghuydev.pythonanywhere.com/api/user/register/',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, email, password }),
+                })
                 .then((res) => res.json())
                 .then((res) => {
                     if (res) {
                         toast.success('Regis success!');
                         // dispatch(addTodo({ userName, phone, email, password }))
-                        mutate('http://localhost:8000/users');
+                        mutate('https://vuquanghuydev.pythonanywhere.com/api/user/register/');
 
                         return true;
                     }
@@ -187,9 +192,9 @@ const RegistrationForm = (props: IProps) => {
                     label="User Name"
                     variant="outlined"
                     fullWidth
-                    value={userName}
+                    value={username}
                     onChange={handleuserNameChange}
-                    onBlur={() => handleuserNameBlur(userName)}
+                    onBlur={() => handleuserNameBlur(username)}
                     margin="normal"
                     error={!!userNameError}
                     helperText={userNameError}

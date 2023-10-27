@@ -37,7 +37,7 @@ function Blog() {
         };
 
     const { data, error, isLoading } = useSWR(
-        "https://book-manage-0fy7.onrender.com/api/books/", fetcher,
+        "https://vuquanghuydev.pythonanywhere.com/api/book/", fetcher,
         {
             revalidateIfStale: false,
             revalidateOnFocus: false,

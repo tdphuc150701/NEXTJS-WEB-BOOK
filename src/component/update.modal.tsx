@@ -48,7 +48,7 @@ function UpdateModal(props: Iprops) {
 
 
 
-    const handleSummit = (e) => {
+    const handleSummit = (e: any) => {
         e.preventDefault();
         if (!title) {
             toast.error('Title cannot be empty');
@@ -84,7 +84,7 @@ function UpdateModal(props: Iprops) {
             return;
         }
         // fetch(`http://localhost:8000/blogs/${id}`,
-        fetch(`https://book-manage-0fy7.onrender.com/api/books/${id}/`,
+        fetch(`https://vuquanghuydev.pythonanywhere.com/api/book/${id}/`,
             {
                 method: 'PUT',
                 headers: {

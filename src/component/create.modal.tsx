@@ -28,7 +28,7 @@ function CreateModal(props: Iprops) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
-    const [image_url, setImg_url] = useState(null);
+    const [image_url, setImg_url] = useState('');
     const [price, setPrice] = useState('');
     const [quantity_in_stock, setQuantinyInStock] = useState('');
     const [publication_date, setPublicationDate] = useState('');
@@ -58,14 +58,15 @@ function CreateModal(props: Iprops) {
 
     // // fetch("http://localhost:8000/blogs",
 
-    const handleSummit = (e) => {
+    const handleSummit = (e: any) => {
         e.preventDefault()
 
         // setPublicationDate(publication_date.split('-').reverse().join('-'))
         console.log(title, author, description, price, quantity_in_stock, publication_date, image_url);
 
 
-        fetch("https://book-manage-0fy7.onrender.com/api/books/",
+        // fetch("https://book-manage-0fy7.onrender.com/api/books/",
+        fetch("https://vuquanghuydev.pythonanywhere.com/api/book/",
             {
                 headers: {
                     'Accept': 'application/json',
@@ -79,7 +80,7 @@ function CreateModal(props: Iprops) {
                 if (res) {
                     toast.success("Create success!")
                     // handleCloseModal();
-                    mutate("https://book-manage-0fy7.onrender.com/api/books/")
+                    mutate("https://vuquanghuydev.pythonanywhere.com/api/book/")
                     console.log(res);
                 }
             })

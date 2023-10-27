@@ -36,8 +36,9 @@ const BlogsPage = (props: Iprops) => {
     const fetcher = (url: string) => fetch(url).then((res) => res.json());
     const { data, error, isLoading } = useSWR(
 
-        "https://book-manage-0fy7.onrender.com/api/books/",
-        // "http://localhost:8000/blogs",
+        // "https://book-manage-0fy7.onrender.com/api/books/",
+        "https://vuquanghuydev.pythonanywhere.com/api/book/",
+
 
         fetcher, {
         revalidateIfStale: false,

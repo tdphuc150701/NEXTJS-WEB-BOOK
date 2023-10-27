@@ -37,20 +37,20 @@ function TableComponent(props: Iprops) {
             <Grid container spacing={3} sx={{ mb: 5 }} >
                 {blogs?.map((row) => {
 
-                    const http = "https://book-manage-0fy7.onrender.com"
-                    const src = row.image_url
-                    const img = http.concat(src)
+                    // const http = "https://book-manage-0fy7.onrender.com"
+                    // const src = row.image_url
+                    // const img = http.concat(src)
                     return (
                         < Grid key={row.id} item md={3} sx={{ mb: 5 }} >
                             <Box className="blog-card" sx={{ width: '100%', textAlign: 'center' }}
                             >
                                 <img
-                                    // src={row.image_url}
-                                    src={img}
+                                    src={row.image_url}
+                                    // src={img}
                                     alt="Mô tả hình ảnh"
 
                                     width="100%" // Điều chỉnh chiều rộng
-                                    height="100%" // Điều chỉnh chiều cao
+                                    height="350" // Điều chỉnh chiều cao
                                 />
 
 

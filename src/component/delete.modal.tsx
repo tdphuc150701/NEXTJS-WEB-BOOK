@@ -42,7 +42,7 @@ function DeleteModal(props: Iprops) {
     }, [blog]);
     const handlDeleteBlog = () => {
         // fetch(`https://book-manage-0fy7.onrender.com/api/books/${id}`,
-        fetch(`https://book-manage-0fy7.onrender.com/api/books/${id}/`,
+        fetch(`https://vuquanghuydev.pythonanywhere.com/api/book/${id}/`,
             {
                 headers: {
                     'Accept': 'application/json',

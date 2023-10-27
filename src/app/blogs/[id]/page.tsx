@@ -43,8 +43,10 @@ const ViewDetailBlog = ({ params }: { params: { id: string } }) => {
 
     const fetcher: Fetcher<IBlog, string> = (url: string) => fetch(url).then((res) => res.json());
     const { data, error, isLoading } = useSWR(
-        `https://book-manage-0fy7.onrender.com/api/books/${params.id}`,
-        // "http://localhost:8000/blogs/${params.id}",
+        // `https://book-manage-0fy7.onrender.com/api/books/${params.id}`,
+        `https://vuquanghuydev.pythonanywhere.com/api/book/${params.id}/`,
+
+
 
         fetcher, {
         revalidateIfStale: false,
@@ -56,9 +58,9 @@ const ViewDetailBlog = ({ params }: { params: { id: string } }) => {
         return <div>Loading...</div>
     }
 
-    const http = "https://book-manage-0fy7.onrender.com"
-    const src = data?.image_url
-    const img = http.concat(src)
+    // const http = "https://book-manage-0fy7.onrender.com"
+    // const src = data?.image_url
+    // const img = http.concat(src)
 
     const handleMouseEnter = (e: any) => {
         e.currentTarget.style.transform = 'scale(1.1) rotate(10deg)';
@@ -85,7 +87,10 @@ const ViewDetailBlog = ({ params }: { params: { id: string } }) => {
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}>
                             <Img sx={{ width: 500, height: 450 }}
-                                alt="complex" src={img} />
+                                alt="complex"
+                                // src={img}
+                                src={data?.image_url}
+                            />
                         </ButtonBase>
                     </Grid>
                     <Grid item xs={12} sm container>

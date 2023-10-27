@@ -87,7 +87,7 @@ function User(props: Iprops) {
                                     <StyledTableCell component="th" scope="row">
                                         {++index}
                                     </StyledTableCell>
-                                    <StyledTableCell align="right">{row.userName}</StyledTableCell>
+                                    <StyledTableCell align="right">{row.username}</StyledTableCell>
                                     <StyledTableCell align="right">{row.email}</StyledTableCell>
                                     <StyledTableCell align="right">{row.phone}</StyledTableCell>
                                     <StyledTableCell align="right">{row.password}</StyledTableCell>

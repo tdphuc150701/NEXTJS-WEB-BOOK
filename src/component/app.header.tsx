@@ -369,7 +369,7 @@ function AppHeader() {
                                         color: "#F5F5F5",
                                         fontWeight: "bold",
                                         border: " 1px solid #F0000000"
-                                    }}>Manager</Button>
+                                    }}>Manage</Button>
                                 </Link>
                             </div>
                         }

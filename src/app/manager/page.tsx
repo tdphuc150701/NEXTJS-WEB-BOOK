@@ -33,7 +33,8 @@ const BlogsPage = (props: Iprops) => {
     const [blog, setBlog] = useState<IBlog | null>(null)
 
     const { data, error, isLoading } = useSWR(
-        "https://book-manage-0fy7.onrender.com/api/books/",
+        // "https://book-manage-0fy7.onrender.com/api/books/",
+        " https://vuquanghuydev.pythonanywhere.com/api/book/",
         // "http://localhost:8000/blogs",
         fetcher, {
         revalidateIfStale: false,
@@ -123,12 +124,15 @@ const BlogsPage = (props: Iprops) => {
             headerClassName: 'data',
             align: 'center',
             renderCell: (params) => {
-                const http = "https://book-manage-0fy7.onrender.com"
-                const src = params.value
-                const img = http.concat(src)
+                // const http = "https://book-manage-0fy7.onrender.com"
+                // const src = params.value
+                // const img = http.concat(src)
                 return (
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-                        <img src={img} alt="Image" style={{ width: '75px', maxHeight: '100%' }} />
+                        <img
+                            //  src={img}
+                            src={params?.row.image_url}
+                            alt="Image" style={{ width: '75px', maxHeight: '100%' }} />
                     </div>
                 )
 

@@ -17,6 +17,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Link from 'next/link'
+import axios from 'axios';
+import { mutate } from 'swr';
 
 
 
@@ -44,13 +46,6 @@ function LinearProgressWithLabel(props: LinearProgressProps & { value: number })
 
 const LoginForm = (props: Iprops) => {
     const dispatch = useDispatch()
-    // const session = useSession();
-    // ...
-
-    // Kiểm tra nếu người dùng đã đăng nhập
-
-    // ...
-    // console.log(session)
     const router = useRouter();
     const [progress, setProgress] = React.useState(10);
 
@@ -71,6 +66,7 @@ const LoginForm = (props: Iprops) => {
     const fetcher = (url: string) => fetch(url).then((res) => res.json());
     const { data, error, isLoading } = useSWR(
         "http://localhost:8000/users",
+        // "https://vuquanghuydev.pythonanywhere.com/api/user/login/",
         fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
@@ -108,21 +104,10 @@ const LoginForm = (props: Iprops) => {
         );
     }
 
+
+
     const users = data
 
-
-
-
-
-
-    const handleGoogleLogin = async () => {
-        try {
-            await signIn("google", { callbackUrl: 'http://localhost:3000/login' });
-        } catch (error) {
-            console.error("Lỗi đăng nhập Google:", error);
-            // Xử lý lỗi một cách thích hợp, ví dụ, hiển thị thông báo lỗi cho người dùng.
-        }
-    };
 
     const handleLogin = async (event: { preventDefault: () => void; }) => {
 

@@ -14,7 +14,8 @@ const UserPage = (props: Iprops) => {
 
     const fetcher = (url: string) => fetch(url).then((res) => res.json());
     const { data, error, isLoading } = useSWR(
-        "http://localhost:8000/users",
+        " http://localhost:8000/users"
+        ,
         fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
