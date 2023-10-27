@@ -1,0 +1,44 @@
+    /* styles.css */
+    .blog-card {
+        border: 3px solid;
+        border-radius: 5%;
+        overflow: hidden;
+        position: relative;
+        transition: filter 0.3s;
+    }
+
+    .blog-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* Màu nền mờ */
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        /* Để không che khuất các phần tử con */
+    }
+
+    .blog-card:hover::before {
+        opacity: 1;
+    }
+
+
+
+    .blog-card .btn-danger {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+
+    }
+
+    .blog-card:hover .btn-danger {
+        opacity: 1;
+
+    }

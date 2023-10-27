@@ -1,0 +1,22 @@
+.data {
+    background-color: wheat;
+    /* Thiết lập màu nền là màu xanh cho các hàng đầu tiên */
+    color: black;
+    border: 1px solid;
+    /* Để đảm bảo văn bản nổi lên trên nền xanh */
+}
+
+.MuiDataGrid-root .MuiDataGrid-columnHeader:first-child {
+    /* CSS cho hàng đầu tiên */
+
+    background-color: wheat;
+    /* Thiết lập màu nền là màu xanh cho các hàng đầu tiên */
+    color: black;
+    /* Để đảm bảo văn bản nổi lên trên nền xanh */
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell {
+    border: 1px solid;
+
+    /* Đổi màu và độ dày viền theo ý muốn */
+}
