@@ -12,20 +12,6 @@ import axios from 'axios';
 
 const fetcher = () => fetch("https://book-manage-0fy7.onrender.com/api/books").then((res) => res.json())
 
-// const data = [
-//     {
-//         "title": "a",
-//         "author": "a",
-//         "content": "a",
-//         "id": 1
-//     },
-//     {
-//         "title": "ababa",
-//         "author": "bababaaaaaaaaaa",
-//         "content": "aaaaaa",
-//         "id": 2
-//     }
-// ]
 
 function Blog() {
 

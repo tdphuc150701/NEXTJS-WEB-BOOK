@@ -111,15 +111,6 @@ function User(props: Iprops) {
                     </TableBody>
                 </Table>
             </TableContainer>
-
-
-            {/* <UpdateUser
-                showModalUpdate={showModalUpdate}
-                setShowModalUpdate={setShowModalUpdate} blog={null} setBlog={function (value: IBlog | null): void {
-                    throw new Error('Function not implemented.');
-                }}
-            /> */}
-
         </div >
 
 

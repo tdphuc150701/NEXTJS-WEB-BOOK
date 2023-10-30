@@ -48,14 +48,10 @@ function TableComponent(props: Iprops) {
                                     src={row.image_url}
                                     // src={img}
                                     alt="Mô tả hình ảnh"
-
                                     width="100%" // Điều chỉnh chiều rộng
-                                    height="350" // Điều chỉnh chiều cao
+                                    height="350"
                                 />
-
-
-
-                                <Typography mt={2} variant='h6' sx={{ fontWeight: "bold", overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                                <Typography mt={2} variant='h6' sx={{ padding: "5px", fontWeight: "bold", overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
                                     {row.title}
                                 </Typography>
                                 <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -63,12 +59,12 @@ function TableComponent(props: Iprops) {
                                         {row.content}
                                     </Typography>
                                 </Collapse>
-                                <Typography variant='h5' sx={{ fontWeight: "bold", color: 'red', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}  >
+                                <Typography variant='h5' sx={{ padding: "5px", fontWeight: "bold", color: 'red', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}  >
                                     {row.price} $
                                 </Typography>
-                                <Box sx={{ display: "flex", alignItems: "center", justifyContent: 'center', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
-                                    <Rating sx={{ justifyContent: 'center' }} name="half-rating" defaultValue={2.5} precision={row.rate} />
-                                    <Typography sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}  >
+                                <Box sx={{ padding: "5px", display: "flex", alignItems: "center", justifyContent: 'center', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                                    <Rating sx={{ padding: "5px", justifyContent: 'center' }} name="half-rating" defaultValue={2.5} precision={row.rate} />
+                                    <Typography sx={{ padding: "5px", display: "flex", justifyContent: "center", alignItems: "center" }}  >
                                         {row.count}
                                     </Typography>
 
